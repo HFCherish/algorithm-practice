@@ -1,0 +1,72 @@
+@import url(div.css);
+ 
+p#p2
+{
+    letter-spacing: 0.4em;
+}
+p#p3
+{
+    word-spacing: 0.4em;
+}
+p#p4
+{
+    letter-spacing: -0.1em;
+    word-spacing: 0.8em;
+}
+
+div#lineheight
+{
+    color: #556734;
+    font-size: 14px;
+    line-height: 1.5;
+    text-indent: 2em;
+    text-align: left;
+}
+/*p#pp1
+{
+     line-height: 1.6em;
+}*/
+p#pp2
+{
+     font-size: 30px;/*line-height: 300%;*/
+}
+p#pp3
+{
+     font-size: 12px;/*line-height: 12px;*/
+}
+p#pp4
+{
+     font-size: 1.5em;/*line-height: 2;*/
+} 
+
+
+div#verticalAlign p
+{
+      vertical-align: baseline;
+      background-color: #ddee67;
+}
+
+div#verticalAlign span
+{
+      font-size: 0.6em;
+}
+
+#verticalAlign .largerSize
+{
+      font-size: 1.3em;
+}
+
+#verticalAlign .smallerSize
+{
+      font-size: 0.5em;
+} 
+
+
+
+
+
+
+
+
+
+

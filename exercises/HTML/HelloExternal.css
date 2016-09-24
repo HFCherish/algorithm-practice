@@ -1,0 +1,20 @@
+body
+{
+            background-color:gray;
+            text-align: center;    
+}
+p{
+            color: blue;
+            font-family:MWindyHKS-Bold;
+            font-size:20px;     
+} 
+h1{
+              color: yellow;
+              font-family:Consolas;
+              font-size:30px;  
+              text-align: center;                     
+}
+ul
+{
+     list-style-image:url(≤ºÕ√Õ√.jpg);         
+}

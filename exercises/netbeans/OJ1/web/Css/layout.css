@@ -1,0 +1,142 @@
+body 
+{ 
+    font-family:Verdana,Arial, Helvetica,  sans-serif;
+    font-size:14px; 
+    margin:0; 
+    background-color: white; 
+    margin:0 auto; 
+    width:70.4%;
+}
+
+/*
+    头部样式
+*/
+#header 
+{ 
+    height:116px; 
+    margin-bottom:0px; 
+    width: 1000px;
+}
+#menu 
+{ 
+    height:26px; 
+    width: 1000px;
+    background:#f6f4e8; 
+    margin-bottom:0px;  
+    text-align: right; 
+    padding-top: 10px; 
+    color: #e26668; 
+    font-family: Arial;
+}
+#menu span#left 
+{  
+    float: left; 
+    margin-left: 15px; 
+    font-size: 1.4em; 
+    font-weight: bold; 
+}
+#user
+{
+    color: #984f4b;
+    padding-right: 3px;   
+}
+#menu a
+{ 
+    margin-right: 15px; 
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    background: url(image/line.jpg) no-repeat left top;
+}
+#menu a:link,a:visited 
+{ 
+    color: #e26668;
+}
+#menu a:hover,a:active 
+{ 
+    color: #00aae0;
+}
+
+/*
+    中间容器样式
+*/
+#mainContent 
+{ 
+    margin-bottom:5px; 
+}
+/*
+    侧栏
+*/
+#sidebar 
+{ 
+    clear: both;
+    height: 550px; 
+    float:left; 
+    width:160px; 
+    background:#99cc01; 
+    font-size: 1.2em; 
+    text-align: center; 
+    margin-top: 0px; 
+}
+#sidebar a 
+{ 
+    display: block; 
+    color: #fefffd; 
+    height: 1.8em;  
+    padding-top: 10px;
+}
+.current 
+{ 
+    background-color: white; 
+    color: #71a20a !important;
+}
+a.current:hover
+{
+    background-color: white !important;
+}
+
+a 
+{ 
+    text-decoration: none;
+} 
+#sidebar a:hover 
+{ 
+    background-color: #71a20a;
+}
+#sidebar a:active 
+{ 
+    background-color: #f8d23f;
+}
+/*
+     内容板样式
+*/
+#announcement 
+{ 
+    margin-left:180px !important; 
+    margin-left:177px;   
+    padding-left: 5px; 
+    margin-bottom: 15px; 
+}
+#content 
+{ 
+    height: auto;
+    min-height: 510px;
+    margin-left:180px !important;
+    margin-left:177px;  
+    padding-left: 5px;
+}
+
+/*
+    底部版权样式
+*/
+#footer 
+{ 
+    float: clear;
+    height: 20px; 
+    text-align: center; 
+    vertical-align: middle;  
+}
+
+
+
+

@@ -1,0 +1,242 @@
+/*
+题目：求高精度幂
+来源：POJ-1001
+语言：C++
+作者：netor
+时间：2010-7-8晚上
+状态：AC
+*/
+
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+
+const int MAX_LEN=150;
+
+using namespace std;
+
+unsigned int x1[MAX_LEN*2+10];
+unsigned int x2[MAX_LEN+10];
+unsigned int result[MAX_LEN*2+10];
+
+
+int main()
+{
+	string R;
+	int N;
+	/*
+	cout<<"请输入属于(0.0,99.999]的实数R和属于0~25之间的整数N："<<endl;
+	*/
+	while(cin>>R>>N)
+	{
+		int Rsize=R.size();
+		int decimalNum=0;//小数位数
+		int i,j=0,t=0;
+		bool label=false;//从后往前扫描R，是否遇到非零值的标志，false为未遇到
+
+		memset(x1,0,sizeof(x1));
+		memset(x2,0,sizeof(x2));
+		memset(result,0,sizeof(result));
+		
+		int arrayNum(unsigned int arr[],int len);//声明
+		
+		
+		//将R从string转化为int[]
+		for(i=Rsize-1;i>=0;i--)
+		{
+			char tmp=R[i];
+			
+			if(tmp!='0')
+			{
+				label=true;
+				if(tmp=='.')
+				{
+					decimalNum=Rsize-t-(i+1);//小数位数
+				}
+				else
+				{
+					x2[j++]=tmp-'0';
+				}
+			}
+			else
+			{	
+				//除去小数点后末尾的0
+				if(!label)
+				{
+					t++;
+					continue;
+				}
+				else 
+					x2[j++]=tmp-'0';
+			}
+		}//end for
+		
+
+		for(i=0;i<MAX_LEN;i++)
+		{
+			x1[i]=x2[i];
+		}
+		
+		///////////////////////////////////////
+		if(N==0)
+		{
+			cout<<1<<endl;
+		}
+		else if(N==1)
+		{
+			for(i=0;i<MAX_LEN*2;i++)
+			{
+				result[i]=x1[i];
+			}
+			int resultNum;
+			resultNum=arrayNum(result,MAX_LEN*2);
+			
+			//输出
+			if(decimalNum!=0)//decimal
+			{
+				if(decimalNum<resultNum)//>1
+				{
+					for(i=resultNum-1;i>=0;i--)
+					{
+						if(i==decimalNum-1)
+						{
+							cout<<'.'<<result[i];
+						}
+						else
+							cout<<result[i];
+					}
+				}
+				else//<1
+				{
+					cout<<'.';
+					for(i=decimalNum-1;i>=0;i--)
+					{
+						if(i>resultNum-1)
+							cout<<0;
+						else
+							cout<<result[i];
+					}
+				}
+				
+			}
+			else
+			{
+				for(i=resultNum-1;i>=0;i--)
+				{
+					cout<<result[i];
+				}
+
+			}
+			cout<<endl;
+		}
+		else		//N>1
+		{
+		
+			//循环N-1次相乘
+			for(int m=1;m<N;m++)
+			{
+				int x1Num,x2Num,lenx1,lenx2;
+
+				
+				memset(result,0,sizeof(result));
+
+				lenx1=sizeof(x1)/sizeof(x1[0]);
+				lenx2=sizeof(x2)/sizeof(x2[0]);
+
+				x1Num=arrayNum(x1,lenx1);
+				x2Num=arrayNum(x2,lenx2);
+
+
+				//两数按位相乘
+				for(i=0;i<x2Num;i++)
+				{
+					for(j=0;j<x1Num;j++)
+					{
+						result[i+j]+=x1[j]*x2[i];
+					}
+				}
+				
+				//进位
+				for(i=0;i<MAX_LEN*2;i++)
+				{
+					if(result[i]>=10)
+					{
+						result[i+1]+=result[i]/10;
+						result[i]=result[i]%10;
+					}
+					else
+						continue;
+				}
+
+				for(i=0;i<MAX_LEN*2;i++)
+				{
+					x1[i]=result[i];
+				}
+				
+			}//end for
+			
+			int resultNum;
+			resultNum=arrayNum(result,MAX_LEN*2);
+			
+			int resultDecimal=decimalNum*N;//结果小数位数
+			
+			//输出
+			if(resultDecimal!=0)//decimal
+			{
+				if(resultDecimal<resultNum)//>1
+				{
+					for(i=resultNum-1;i>=0;i--)
+					{
+						if(i==resultDecimal-1)
+						{
+							cout<<'.'<<result[i];
+						}
+						else
+							cout<<result[i];
+					}
+				}
+				else//<1
+				{
+					cout<<'.';
+					for(i=resultDecimal-1;i>=0;i--)
+					{
+						if(i>resultNum-1)
+							cout<<0;
+						else
+							cout<<result[i];
+					}
+				}
+			}
+			else
+			{
+				for(i=resultNum-1;i>=0;i--)
+				{
+					cout<<result[i];
+					//outResult[resultNum-1-i]=result[i];
+				}
+
+			}
+			cout<<endl;
+		}
+
+	}//end while
+	return 0;
+}
+
+//求数组有用长度
+int arrayNum(unsigned int arr[],int len)
+{
+	int usingNum;
+
+	if(len==1&&arr[0]==0)
+		return 0;
+	for(int i=len-1;i>=0;i--)
+	{
+		if(arr[i]!=0)
+		{
+			usingNum=i+1;
+			break;
+		}
+	}
+	return usingNum;
+}

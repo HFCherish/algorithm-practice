@@ -1,0 +1,12 @@
+body
+{
+    font-size: large;
+    font-family: console;
+}
+
+div
+{
+    border: 6px solid silver;
+    padding: 5px;
+    margin: 5px;
+} 

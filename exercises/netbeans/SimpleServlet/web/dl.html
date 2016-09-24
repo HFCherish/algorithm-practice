@@ -1,0 +1,39 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>登陆</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+        <style type="text/css">
+            body{
+                text-align: center;
+            }
+            p
+            {
+                margin-bottom: 10px;
+            }  
+            div#tj
+            {
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p>欢迎登陆系统</p>
+            <form action="Main" name="login" method="post">
+                        <label>用户名：</label>
+                        <input type="text" name="userID"/>
+                        <label>密码：</label>
+                        <input type="password" name="password"/>
+                   <div id ="tj">
+                        <input type="submit" name="tj" value="提交"/>
+                        <input type="submit" name="cz" value="重置"/>
+                   </div>
+            </form>
+        </div>
+    </body>
+</html>

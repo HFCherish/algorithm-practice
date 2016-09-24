@@ -1,0 +1,86 @@
+body
+{
+    font-family: Tahoma, Arial, "宋体";
+    font-size: small;    
+    background-image: url(7B.jpg);
+    text-align: center;
+}
+
+div.box
+{
+       border: 5px solid #E2DFD0;
+       margin-bottom: 1em;
+       
+}
+
+div.box div.title
+{
+        padding: 0.3em;
+        padding-left: 0.6em;
+        background: #F2F0DD;
+        font-size: 0.9em;
+        font-weight: bold;
+}
+
+div.box div.content
+{
+        margin: 0.3em;  color: olive;
+}
+
+div.box div.content *
+{
+        margin: 0;
+}
+
+div.box h3
+{
+        font-weight: bold;
+        font-size: 0.9em;
+        padding: 0.5em; 
+        color: #0033CC;
+}
+
+div.box p
+{
+        font-size: 0.9em;
+        padding: 0.5em;
+}
+
+div.content + div.content
+{
+        border-top: 1px dotted #E2DFD0;
+}
+
+p:first-letter
+{
+        font-size: xx-large;
+        color: yellow;
+        background-color: gray;
+        font-weight: bold;               
+}
+
+p:first-line
+{
+        font-size: 1.5em;
+        background-color: #DEFEEB;
+} 
+     
+h1:first-child
+{
+        font-family: "隶书";
+        background-color: silver;
+}
+
+h1:before
+{
+        content: "重要通知"; color: red;
+}
+
+h3:after
+{
+        content: "提示";   color: red;
+}    
+
+
+        
+       

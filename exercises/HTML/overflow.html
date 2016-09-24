@@ -1,0 +1,61 @@
+<!--文档说明-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional/EN"
+  "http://www.w3.org/TR/xhtml/DTD/xhtml-transitional.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml">
+
+<!--文档头-->
+<head>
+      <meta http-equiv = "ContentType" content = "text/html; charset = gb2312"/>
+      <title>overflow属性</title>
+      <style type = "text/css">
+             p
+             {
+                      width: 100px;
+                      height: 100px;
+                      background-color: silver;
+                      float: left;
+                      margin: 10px; 
+             }            
+             p#visible
+             {
+                      overflow: visible;
+             }
+             p#hidden
+             {
+                      overflow: hidden;
+             }
+             p#scroll
+             {
+                      overflow: scroll;
+             }
+             p#auto
+             {
+                      overflow: auto;
+             }
+             span
+             {
+                      color: blue;
+                      height: 100px;
+                      width: 300px;
+                      background-color: gray;
+                      display: block;
+                      float: left;
+             }
+      </style>
+</head>
+
+<!--文档体-->
+<body>
+      <p id = "visible" title = "visible">有时，元素的内容区域小于元素实际所包含的内容，使用CSS提供的overflow属性
+                        可控制超出内容区域的部分该如何显示。</p>
+      <p id = "hidden" title = "hidden">有时，元素的内容区域小于元素实际所包含的内容，使用CSS提供的overflow属性
+                        可控制超出内容区域的部分该如何显示。</p> 
+      <p id = "scroll" title = "scroll">有时，元素的内容区域小于元素实际所包含的内容，使用CSS提供的overflow属性
+                        可控制超出内容区域的部分该如何显示。</p>
+      <p id = "auto" title = "auto">有时，元素的内容区域小于元素实际所包含的内容，使用CSS提供的overflow属性
+                        可控制超出内容区域的部分该如何显示。</p>
+      <span>span元素默认为内联元素，浏览器会按照内联元素显示方式渲染该元素。另外，height和width属性也对span
+            不起作用。</span> 
+</body>
+
+</html> 

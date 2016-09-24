@@ -1,0 +1,39 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>选择页面</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <div>
+            <form action="sum.jsp" method="post" name="form">
+                <p>
+                    选择计算方式：
+                    <select name="method" size="1">
+                        <option value="1">计算1到n的连续和</option>
+                        <option value="2">计算1到n的平方和</option>
+                        <option value="3">计算1到n的立方和</option>
+                    </select>                        
+                </p>
+                <p>
+                    选择n的值：
+                    <select name="n">
+                        <option value="10">n=10</option>
+                        <option value="20">n=20</option>
+                        <option value="30">n=30</option>
+                        <option value="40">n=40</option>
+                        <option value="50">n=50</option>
+                        <option value="100">n=100</option>
+                    </select>
+                </p>
+                <p>
+                    <input type="submit" value="提交">
+                </p>
+            </form>            
+        </div>
+    </body>
+</html>

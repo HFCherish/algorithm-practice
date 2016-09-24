@@ -1,0 +1,102 @@
+body 
+{ 
+    font-family:Verdana "宋体"; 
+    font-size:14px; 
+    margin:0; 
+    background-color: white; 
+    margin:0 auto; 
+    width:70.4%;
+}
+
+/*
+    头部样式
+*/
+#header 
+{ 
+    height:116px;  
+    margin-bottom:5px; 
+    width: 1000px;
+}
+
+/*
+    中间容器样式
+*/
+#mainContent 
+{ 
+    margin-bottom:5px; 
+}
+/*
+    侧栏
+*/
+#sidebar 
+{ 
+    height: 500px; 
+    float:left; 
+    width:160px; 
+    background:#99cc01; 
+    font-size: 1.2em; 
+    font-weight: bold;
+    text-align: center; 
+    margin-top: 0px; 
+}
+#sidebar a 
+{ 
+    display: block; 
+    color: #fefffd; 
+    height: 1.8em;  
+    padding-top: 10px;
+}
+.current 
+{ 
+    background-color: white; 
+    color: #71a20a !important;
+}
+a.current:hover
+{
+    background-color: white !important;
+}
+
+a 
+{ 
+    text-decoration: none;
+} 
+#sidebar a:hover 
+{ 
+    background-color: #71a20a;
+}
+#sidebar a:active 
+{ 
+    background-color: #f8d23f;
+}
+/*
+    内容板样式
+*/
+#content 
+{ 
+    height: auto;
+    min-height: 550px;
+    margin-left:205px !important;
+    margin-left:202px;  
+    padding-left: 5px;
+}
+#title
+{
+    font: bold large "Times New Roman","宋体",Times,serif;
+    color: red;
+}
+#time
+{
+    font-weight: bold;
+}
+
+/*
+    底部版权样式
+*/
+#footer 
+{ 
+    float: clear;
+    height: 20px; 
+    text-align: center; 
+    vertical-align: middle;  
+}
+

@@ -1,0 +1,92 @@
+/* 
+    Document   : global
+    Created on : 2011-11-19, 13:06:43
+    Author     : ZXY
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+h1{
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+}
+#list table
+{
+    margin: 0 auto;
+}
+#list table td{
+    font-size: 14px;
+    text-align: center;
+}
+#list table thead td{
+    text-align:  center;
+    font-family: Arial, Helvetica,  sans-serif;
+    background-color:  #99cc33;
+    height: 35px;
+}
+
+#list table tbody{
+    font-size: 14px;
+    font-family: Arial,Tahoma, Helvetica, Arial, sans-serif;
+    font-weight:  lighter;
+    background-color:  #FFFF99;
+}
+#list table tr.even{
+    background-color: #FFFFCC;
+}
+#list table tbody td{
+    height: 30px;
+}
+#list table thead td.user, .result, .subtime{
+}
+#footpage {
+    text-align: center;
+}
+#footpage a{
+    font-family: monospace;
+}
+a:link { text-decoration:  none; color: #999999;}       /* 未访问的链接 */
+a:visited { text-decoration:  none; color: #999999;}	 /* 已访问的链接 */
+a:hover { text-decoration:  none; color: #33cc33;}      /* 鼠标移动到链接上 */
+a:active { text-decoration:  none; color: #999999;}	 /* 选定的链接 */
+
+#contest {
+    text-align: center;
+}
+
+#contest .title{
+    font-weight: bold;
+    font-size: 36px;
+    color:  #33cc33;
+}
+#contest .time{
+    color: seagreen;
+}
+
+#contest_pro {
+    text-align: center;
+}
+
+#contest_pro table tr{
+    height: 33px;
+}
+
+#contest_pro table td{
+    text-align: center;
+    font-family: Arial,Tahoma, Helvetica, Arial, sans-serif;
+    font-weight:  lighter;
+    background-color:  #FFFF99;
+}
+
+#contest_pro table thead td{
+    text-align:  center;
+    font-family: Arial, Helvetica,  sans-serif;
+    background-color:  #99cc33;
+    height: 25px;
+}

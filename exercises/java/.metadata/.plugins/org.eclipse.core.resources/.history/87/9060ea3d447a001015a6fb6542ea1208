@@ -1,0 +1,182 @@
+
+import java.awt.Color;
+import widgets.*;
+
+class GraphLabCanvas extends Canvas {
+           
+    /*----------------------
+     * Problem 1
+     *----------------------*/
+    void drawParabola(GraphicPen g) {
+        double oldx=-10,oldy = oldx*oldx/10;  
+    	for(double x=-10; x<=10; x+=0.25)
+          {
+        	  double y = x*x/10;
+        	  g.setColor(Color.blue);
+        	  g.drawDot(x, y);
+        	  g.setColor(Color.red);
+        	  g.drawLine(oldx, oldy, x, y);
+        	  oldx = x;
+        	  oldy = y;
+          }// TODO: put your code here
+    }
+    
+    /*--------------------
+     * Problem 2
+     *--------------------*/
+    void drawSine(GraphicPen g) {
+    	double oldx=-10,oldy = Math.sin(oldx)*5;  
+    	for(double x=-10; x<=10; x+=0.25)
+          {
+        	  double y = Math.sin(x)*5;
+        	  g.setColor(Color.blue);
+        	  g.drawDot(x, y);
+        	  g.setColor(Color.red);
+        	  g.drawLine(oldx, oldy, x, y);
+        	  oldx = x;
+        	  oldy = y;
+          }// TODO: put your code here
+    }
+  
+    /*-----------------------
+     * Problem 3
+     *-----------------------*/
+    void drawPolygons(GraphicPen g) {
+      for (int i = 3; i < 10; i++) {
+        polygon(g, 0, 0, i, i, 90);
+      }
+    }
+    
+    void polygon(GraphicPen g, double x0, double y0, 
+                 int nsides, double radius, double startAngle) 
+    {
+        double oldx = x0 + polarX(radius,startAngle),oldy = y0 + polarY(radius,startAngle);  
+        double increase = 360/nsides;
+    	for(double angle=startAngle; angle<=startAngle+360-increase; angle+=increase)
+          {
+        	  double x = x0 + polarX(radius,angle),y = y0 + polarY(radius,angle);
+    		  g.setColor(Color.black);
+        	  g.drawLine(oldx, oldy, x, y);
+        	  oldx = x;
+        	  oldy = y;
+          }
+    	g.drawLine(oldx, oldy, x0+polarX(radius,startAngle), y0+polarY(radius,startAngle));// TODO: put your code here
+    }     
+    
+       
+    /*-----------------------
+     * Problem 4
+     *-----------------------*/   
+    void drawPolySpiral(GraphicPen g) {
+      polySpiral(g, 6, 8, 0.3, 4); 
+    }
+    
+    void polySpiral(GraphicPen g, int nsides, double radius, 
+                                  double radiusDec, double twist) 
+    {         
+        double angle = 90 - 180/nsides; 
+    	for(; radius>=0.1; radius -= radiusDec, angle+=twist)
+    	{
+    		polygon(g,0,0,nsides,radius,angle);
+    	}// TODO: put your code here
+    }    
+        
+    /*----------------------
+     * Problem 5
+     *----------------------*/
+    void drawSierpinski(GraphicPen g) {
+      sierp(g, 7, -8, -6, 8, -6, 0, 8);
+    }
+    
+    void sierp(GraphicPen g, int n, double x1, double y1,
+                                    double x2, double y2,
+                                    double x3, double y3)
+    {
+       // TODO: put your code here
+    }
+    
+    /*----------------------
+     * Problem 6
+     *----------------------*/
+    void drawTree(GraphicPen g) {
+      tree(g, 12, 0, -8, 5, 90);
+    }    
+    
+    double leftLength  = 0.65;
+    double leftAngle   = 50;
+    double rightLength = 0.70;
+    double rightAngle  = 40;
+        
+    void tree(GraphicPen g, int n, double x, double y, double length, double angle) {
+      // TODO: put your code here
+    }        
+        
+        
+    /**************************
+     * Basic methods
+     **************************/
+        
+    GraphLabCanvas(int xs, int ys) {
+        super(xs,ys);
+    }
+        
+    public void draw(GraphicPen g) {         
+        if      (whatDraw == DrawParabola)     { drawParabola(g);    }
+        else if (whatDraw == DrawSine)         { drawSine(g);        }
+        else if (whatDraw == DrawPolygons)     { drawPolygons(g);    }
+        else if (whatDraw == DrawPolySpiral)   { drawPolySpiral(g);  }       
+        else if (whatDraw == DrawSierp)        { drawSierpinski(g);  }
+        else if (whatDraw == DrawTree)         { drawTree(g);        }         
+    }
+    
+    /*****************************
+     * Fields and constants 
+     *****************************/ 
+    
+    int whatDraw = 0;  // what do we draw?
+    
+    static final int DrawParabola     = 1;
+    static final int DrawSine         = 2;
+    static final int DrawPolygons     = 3;
+    static final int DrawPolySpiral   = 4;    
+    static final int DrawSierp        = 5;
+    static final int DrawTree         = 6;    
+}
+
+
+public class GraphLabMain extends GUIApp { 
+    GraphLabCanvas graph = null;
+    
+    GraphLabMain() {
+      super("MyGUI");
+    }
+    
+    class GraphButton extends Button {
+        int what = 0;
+        
+        GraphButton(String s, int w) { super(s); what = w;  }
+        
+        public void doAction() { graph.whatDraw = what; graph.redraw(); }
+    }
+        
+  public Widget buildGUI() {
+        graph = new GraphLabCanvas(600, 600);
+        
+        HLayout buttons = new HLayout();        
+        buttons.add(new GraphButton("Parabola",     GraphLabCanvas.DrawParabola));
+        buttons.add(new GraphButton("SineWave",     GraphLabCanvas.DrawSine));
+        buttons.add(new GraphButton("Polygons",     GraphLabCanvas.DrawPolygons));
+        buttons.add(new GraphButton("PolySpiral",   GraphLabCanvas.DrawPolySpiral));        
+        buttons.add(new GraphButton("Sierp",        GraphLabCanvas.DrawSierp));
+        buttons.add(new GraphButton("Tree",         GraphLabCanvas.DrawTree));        
+                
+        VLayout root = new VLayout();
+        root.add(buttons);
+        root.add(graph);                
+        return root;
+    }
+  
+  public static void main(String[] args) {
+    startApplication(new GraphLabMain());
+  }   
+}

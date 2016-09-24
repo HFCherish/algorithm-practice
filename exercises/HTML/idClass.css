@@ -1,0 +1,31 @@
+h1#bulletinTitle
+{
+      color: white;
+      background-color:silver;          
+}
+
+p#bulletinContent
+{
+      color: yellow;
+      background-color: maroon;                            
+}
+
+
+/*class µÄÓÃ·¨*/ 
+/*h1.title
+{
+      color:white;
+      background: silver;        
+}
+
+p.content
+{
+    color: yellow ;
+    background-color: maroon;         
+}*/
+
+*.important
+{
+    font-weight: bold;
+    color:red;           
+}

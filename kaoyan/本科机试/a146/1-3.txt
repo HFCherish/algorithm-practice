@@ -1,0 +1,59 @@
+一、
+VoIP：VoIP(Voice over Internet Protocol）是一种以IP电话为主，并推出相应的增值业务的技术。就是将模拟声音讯号（Voice）数字化，以数据封包（Data Packet）的形式在 IP 数据网络 (IP Network）上做实时传递。
+
+J2ME：Java ME 以往称作J2ME（Java Platform，Micro Edition），是为机顶盒、移动电话和PDA之类嵌入式消费电子设备提供的Java语言平台，包括虚拟机和一系列标准化的Java API。它和Java SE、Java EE一起构成Java技术的三大版本，并且同样是通过JCP（Java Community Process）制订的。
+
+IPv6：IPv6是Internet Protocol Version 6的缩写，其中Internet Protocol译为“互联网协议”。IPv6是IETF（互联网工程任务组，Internet Engineering Task Force）设计的用于替代现行版本IP协议（IPv4）的下一代IP协议。目前IP协议的版本号是4（简称为IPv4），它的下一个版本就是IPv6。
+
+SATA3.0：sata2.0的升级版本，速度更快，可以支持全双工通信，是一种硬盘传输的接口。
+
+RTSP：RTSP（Real Time Streaming Protocol），实时流传输协议，是TCP/IP协议体系中的一个应用层协议，由哥伦比亚大学、网景和RealNetworks公司提交的IETF RFC标准。该协议定义了一对多应用程序如何有效地通过IP网络传送多媒体数据。RTSP在体系结构上位于RTP和RTCP之上，它使用TCP或RTP完成数据传输。HTTP与RTSP相比，HTTP传送HTML，而RTSP传送的是多媒体数据。HTTP请求由客户机发出，服务器作出响应；使用RTSP时，客户机和服务器都可以发出请求，即RTSP可以是双向的。
+
+TPC-C：是一种旨在衡量联机事务处理(OLTP)系统性能与可伸缩性的行业标准基准测试项目。许多IT专业人员将TPC-C视为衡量“真实”OLTP系统性能的有效指示器。
+
+H.264MP：H.264是国际标准化组织（ISO）和国际电信联盟（ITU）共同提出的继MPEG4之后的新一代数字视频压缩格式，它即保留了以往压缩技术的优点和精华又具有其他压缩技术无法比拟的许多优点。
+
+SOA：面向服务的体系结构（Service-Oriented Architecture，SOA）是一个组件模型，它将应用程序的不同功能单元（称为服务）通过这些服务之间定义良好的接口和契约联系起来。接口是采用中立的方式进行定义的，它应该独立于实现服务的硬件平台、操作系统和编程语言。这使得构建在各种各样的系统中的服务可以使用一种统一和通用的方式进行交互。
+
+USB ：是英文Universal Serial BUS（通用串行总线）的缩写，而其中文简称为“通串线，是一个外部总线标准，用于规范电脑与外部设备的连接和通讯。是应用在PC领域的接口技术。USB接口支持设备的即插即用和热插拔功能。USB是在1994年底由英特尔、康柏、IBM、Microsoft等多家公司联合提出的。
+
+SAN：Storage Area Network and SAN Protocols ，存储区域网络（SAN）是一种高速网络或子网络，提供在计算机与存储系统之间的数据传输。存储设备是指一张或多张用以存储计算机数据的磁盘设备。一个 SAN 网络由负责网络连接的通信结构、负责组织连接的管理层、存储部件以及计算机系统构成，从而保证数据传输的安全性和力度。 
+
+二、
+1）MP3：其特点有：　1、MP3是一个数据压缩格式； 　　2、它丢弃掉脉冲编码调制（PCM）音频数据中对人类听觉不重要的数据（类似于JPEG是一个有损图像压缩），从而达到了小得多的文件大小； 　　3、MP3音频可以按照不同的位速进行压缩，提供了在数据大小和声音质量之间进行权衡的一个范围。MP3格式使用了混合的转换机制将时域信号转换成频域信号。 　　4、32波段多相积分滤波器（PQF）； 　　5、36或者12 tap 改良离散余弦滤波器（MDCT）；每个子波段大小可以在0...1和2...31之间独立选择； 　　6、MP3不仅有广泛的用户端软件支持，也有很多的硬件支持比如便携式媒体播放器（指MP3播放器）DVD和CD播放器。编码格式：MPEG Audio Player3
+WMA：它是微软公司推出的与MP3格式齐名的一种新的音频格式。由于WMA在压缩比和音质方面都超过了MP3，更是远胜于RA(Real Audio)，即使在较低的采样频率下也能产生较好的音质。一般使用Windows Media Audio编码格式的文件以WMA作为扩展名，一些使用Windows Media Audio编码格式编码其所有内容的纯音频ASF文件也使用WMA作为扩展名。编码格式：Windows Media Audio
+
+2）185bytes
+
+
+3）源代码、预处理器、编译器、目标代码、汇编程序、链接器、可执行程序
+
+4）
+1、在-50度的温度下，保温时间为多长？
+2、在50度温度下，保温时间为多长？
+3、在高压环境下，保温水壶会破损？
+
+5）云存储是在云计算(cloud computing)概念上延伸和发展出来的一个新的概念，是指通过集群应用、网格技术或分布式文件系统等功能，将网络中大量各种不同类型的存储设备通过应用软件集合起来协同工作，共同对外提供数据存储和业务访问功能的一个系统。
+其中分布式文件系统（Distributed File System）是指文件系统管理的物理存储资源不一定直接连接在本地节点上，而是通过计算机网络与节点相连。分布式文件系统的设计基于客户机/服务器模式。
+集群通信系统是一种用于集团调度指挥通信的移动通信系统，主要应用在专业移动通信领域。该系统具有的可用信道可为系统的全体用户共用，具有自动选择信道功能，它是共享资源、分担费用、共用信道设备及服务的多用途、高效能的无线调度通信系统。
+
+三、
+1、
+create table STAB(
+	SNO char(10) primary key,
+	SNAME char(50) NOT NULL,
+	SSX char(50) NOT NULL,
+	SWT double NOT NULL );
+
+2、
+select si.SNO as 商品编号,st.SNAME as 商品名称,si.ICNUM as 入库数量,si.ICDATE as 入库日期
+from SITAB si, STAB st
+where si.SNO = st.SNO and si.STNO='RK129284';
+
+3、
+insert into STAB(SNO,SNAME,SSX,SWT) values( '200401001','350ml可乐','350ml','550');
+
+4、
+
+	
+

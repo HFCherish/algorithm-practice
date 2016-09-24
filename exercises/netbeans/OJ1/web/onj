@@ -1,0 +1,153 @@
+#!/usr/bin/env python
+
+"""
+coded by fookwood
+parameters are passed like this:
+$ ./onj 1.cpp 1002 1000 32767
+argv[1] : the source code that will be compiled
+argv[2] : the problem number
+argv[3] : the time limit
+argv[4] : the memory limit 
+"""
+
+import sys, signal, os, subprocess, syslog, time
+
+PROBLEMDIR = 'problems'
+CODEDIR = 'codes'
+
+# Verdicts
+verdict = { \
+	'ACCEPTED' : 0 ,\
+	'WA' : 1,\
+	'TLE' : 2,\
+	'MLE' : 3,\
+	'RE' : 4,\
+	'CE' : 5,\
+	'OLE' : 6,\
+	'ILE' : 7,\
+	'PE' : 8 }
+
+TIME_LIMIT = int(sys.argv[3])
+MEMORY_LIMIT = int(sys.argv[4])
+
+
+def debug(msg):
+	print msg
+	syslog.syslog(msg)
+
+# check if two files are the same
+def file_same(a,b):
+	fileA = open(a,'r')
+	fileB = open(b,'r')
+	value = False
+	if fileA.readlines() == fileB.readlines():
+		value = True
+	fileA.close()
+	fileB.close()
+	return value;
+
+# if two files are almost the same	
+def compare_files(a,b):
+	fileA = open(a,'r')
+	fileB = open(b,'r')
+	linesA = fileA.read()
+	linesB = fileB.read()
+	fileA.close()
+	fileB.close()
+	if linesA.strip() == linesB.strip():
+		return True
+	return False
+
+# Parse commandlines options
+sourcefile = sys.argv[1]
+problem = sys.argv[2]
+path = "."+os.sep+"tmp"
+ext = sourcefile.split(".")[1]
+runid = sourcefile.split(".")[0]
+"""
+print sourcefile	1.cpp
+print problem		1001
+print path			./tmp
+print ext			cpp
+"""
+# check if the code is too long
+a = open(CODEDIR+os.sep+sourcefile,"r")
+codecode = a.read()
+a.close()
+if len(codecode) >= 50000:
+	debug("ILE")
+	sys.exit(verdict["ILE"]);
+
+
+if ext == "cpp":
+	compile="g++ -lm %s -o %s 2> /dev/null" % \
+			 (CODEDIR+os.sep+sourcefile,path+os.sep+runid)
+elif ext  == "c":
+	compile="gcc -lm %s -o %s 2> /dev/null" % \
+			 (CODEDIR+os.sep+sourcefile,path+os.sep+runid)
+
+if os.system(compile):
+	debug("CE")
+	sys.exit(verdict["CE"])
+
+run = path+os.sep+runid
+infile = PROBLEMDIR + os.sep + problem + os.sep + problem + ".IN"
+outfile= path+os.sep+runid+".OUT"
+
+# Run
+debug("Running...")
+p = subprocess.Popen( run,stdin=open(infile,"r"),stdout=open(outfile,"w"),stderr=open("/dev/null","w"))
+start = time.time()
+while p.poll() == None:
+	s = file("/proc/"+str(p.pid)+'/status','r').read()
+	if s.find('RSS') < 0:
+		continue
+	s=s[s.find('RSS')+6:]
+	s=s[:s.find('kB')-1]
+	mm = int(s)
+	if mm > MEMORY_LIMIT:
+		p.kill()
+		debug("MLE")
+		sys.exit(verdict["MLE"])
+	tt = int((time.time()-start)*1000)
+	if tt > TIME_LIMIT:
+		p.kill()
+		debug("TLE")
+		sys.exit(verdict["TLE"])
+
+print "time cost:"+str(tt)+"ms";	
+print "mem  cost:"+str(mm)+"kb"
+r = p.returncode
+debug("Exit status : %d " % r )
+if r != 0:
+	debug("RE")
+	sys.exit(verdict["RE"])
+
+# compare output with expected out
+outputProduced = outfile
+outputExpected = PROBLEMDIR + os.sep + problem + os.sep + problem + ".OUT"
+
+a = open(outfile,'r')
+codecode = a.read()
+if len(codecode) >= 50000:
+	debug( "OLE");
+	sys.exit(verdict["OLE"] )
+
+timefile= open(path+os.sep+sys.argv[1]+".TIME","w")
+memfile = open(path+os.sep+sys.argv[1]+".MEM","w")
+timefile.write(str(tt))
+memfile.write(str(mm))
+timefile.close()
+memfile.close()
+
+
+if compare_files(outputProduced,outputExpected) == True:
+	if file_same(outputProduced,outputExpected) == True:
+		debug("AC")
+		sys.exit( verdict["ACCEPTED"] )
+	else:
+		debug("PE")
+		sys.exit( verdict["PE"] )
+else:
+	debug("WA")
+	sys.exit(verdict["WA"])
